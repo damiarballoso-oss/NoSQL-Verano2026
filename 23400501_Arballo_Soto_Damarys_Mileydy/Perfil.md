@@ -17,11 +17,12 @@
 
 ## 🛠 Tecnologías que conozco
 - Java, JavaScript
-- MySQL, MongoDB
+- MySQL, MongoDB, SQLServer
 - Git y GitHub
 
 ## 📫 Cómo contactarme
 - Correo: damiarballoso@ittepic.edu.mx
 - telefono: 3111085615
-## Recomendación
--- CRESPUSCULOS
+## Recomendación De Peliculas y Series
+- CREPUSCULOS
+- THE CHOSEN
