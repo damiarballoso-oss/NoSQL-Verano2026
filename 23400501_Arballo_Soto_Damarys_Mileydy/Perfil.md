@@ -18,7 +18,7 @@
 ## 🛠 Tecnologías que conozco
 - Java, JavaScript
 - MySQL, MongoDB, SQLServer
-- Git y GitHub
+
 
 ## 📫 Cómo contactarme
 - Correo: damiarballoso@ittepic.edu.mx
