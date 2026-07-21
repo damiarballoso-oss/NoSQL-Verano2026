@@ -83,6 +83,7 @@ app.get("/peliculas/nc/:nc", async (req, res) => {
     }
 });
 
+
 ///////////==========================================RUTAS SERIES
 //GET de todas las series
 app.get("/series",async(req,res)=>{
