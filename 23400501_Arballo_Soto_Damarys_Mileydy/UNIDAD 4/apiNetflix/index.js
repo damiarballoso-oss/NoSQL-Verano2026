@@ -2,8 +2,10 @@
 const express= require("express");//permite crer el servidor y las rutas
 const morgan = require("morgan");//mueestra en la terminal las peticiones 
 const mongoose=require("mongoose");//comunicacion entre el codigo java y la base de dtaos MongoDB
+const cors =require("cors");
 
 const app=express();
+app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 const PORT=3000;
