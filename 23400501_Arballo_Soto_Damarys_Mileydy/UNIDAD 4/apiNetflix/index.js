@@ -117,7 +117,9 @@ app.get("/series/:id", async (req, res) => {
 
 
 
-
+app.get("/",(req,res)=>{
+    res.send("Servidor Funcionando de API de netflix");
+});
 //conexion del puert
 app.listen(PORT, () => {
     console.log("Servidor iniciado en http://localhost:" + PORT);
