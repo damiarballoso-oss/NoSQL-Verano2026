@@ -1,0 +1,181 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES (:root)
+   Define la paleta de colores, bordes y sombras reutilizables en todo el sitio.
+   ========================================================================== */
+:root {
+    --primary-color: #e546ab; /* Color principal (rosa/fucsia) para botones y enfoques */
+    --primary-hover: #ca38a3; /* Tono de rosa más oscuro al pasar el cursor sobre elementos interactivos */
+    --bg-color: #f8fafc;      /* Color de fondo general de la página (gris muy claro) */
+    --card-bg: #ffffff;       /* Color de fondo del contenedor principal (blanco puro) */
+    --text-main: #1e293b;     /* Color de texto principal (gris oscuro/azulado, fácil de leer) */
+    --text-muted: #64748b;    /* Color de texto secundario (gris medio para subtítulos o notas) */
+    --border-color: #e2e8f0;  /* Color suave para bordes de inputs, tarjetas y divisores */
+    --radius: 12px;           /* Curvatura estándar para las esquinas de contenedores grandes */
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra para dar efecto de elevación */
+}
+
+/* ==========================================================================
+   2. RESETEO GLOBAL (*)
+   Asegura que todos los elementos se comporten de forma consistente en cualquier navegador.
+   ========================================================================== */
+* {
+    box-sizing: border-box; /* Incluye padding y borders dentro del ancho/alto total del elemento */
+    margin: 0;              /* Elimina los márgenes externos por defecto */
+    padding: 0;             /* Elimina los espaciados internos por defecto */
+}
+
+/* ==========================================================================
+   3. ESTRUCTURA Y FONDO GENERAL (body)
+   Contenedor principal de la página y centrado de la interfaz.
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; /* Tipografía limpia y moderna del sistema */
+    background-color: var(--bg-color); /* Fondo gris muy claro definido en variables */
+    color: var(--text-main);           /* Texto en gris oscuro */
+    display: flex;                     /* Activa Flexbox para el maquetado general */
+    justify-content: center;           /* Centra el contenedor horizontalmente en la pantalla */
+    padding: 30px 10px;                /* Relleno interno: 40px arriba/abajo, 20px a los lados */
+    min-height: 100vh;                 /* Fuerza a la página a ocupar al menos el 100% del alto de pantalla */
+}
+
+/* ==========================================================================
+   4. TARJETA CONTENEDORA (.container)
+   Caja principal tipo "card" donde habita la interfaz.
+   ========================================================================== */
+.container {
+    width: 100%;                          /* Ocupa el 100% del ancho disponible... */
+    max-width: 800px;                     /* ...pero sin sobrepasar nunca los 650px */
+    background: var(--card-bg);           /* Fondo blanco puro */
+    padding: 50px;                        /* Espacio interno amplio alrededor del contenido */
+    border-radius: var(--radius);         /* Esquinas redondeadas (12px) */
+    box-shadow: var(--shadow);             /* Sombra suave de flotación */
+    border: 1px solid var(--border-color);/* Borde fino gris claro */
+}
+
+/* ==========================================================================
+   5. ENCABEZADOS (h1, h2)
+   Estilos tipográficos para títulos y subtítulos.
+   ========================================================================== */
+h1 {
+    font-size: 1.8rem;         /* Tamaño de letra grande para el título principal */
+    color: var(--text-main);   /* Color gris oscuro */
+    margin-bottom: 24px;       /* Separación de 24px hacia abajo */
+    text-align: center;        /* Texto centrado */
+    font-weight: 700;          /* Grosor de letra en negrita */
+}
+
+h2 {
+    font-size: 1.25rem;        /* Tamaño de letra mediano */
+    color: var(--text-muted);  /* Color gris medio secundario */
+    margin-bottom: 16px;       /* Separación de 16px hacia abajo */
+    font-weight: 600;          /* Grosor de letra en semi-negrita */
+}
+
+/* ==========================================================================
+   6. MAQUETADO DEL FORMULARIO (#formulario)
+   Disposición en cuadrícula (Grid) para organizar los campos de texto.
+   ========================================================================== */
+#formulario {
+    display: grid;                 /* Convierte el formulario en una cuadrícula CSS Grid */
+    grid-template-columns: 1fr 1fr;/* Divide el espacio en 2 columnas de igual ancho (50% cada una) */
+    gap: 12px;                     /* Espacio de 12px entre filas y columnas del formulario */
+    margin-bottom: 24px;           /* Separación inferior de 24px */
+}
+
+#formulario input[id="titulo"] {
+    grid-column: span 2;           /* El campo con id "titulo" se extiende para ocupar las 2 columnas */
+}
+
+/* ==========================================================================
+   7. CAMPOS DE ENTRADA (input, input:focus)
+   Estilos visuales e interacción para las cajas de texto.
+   ========================================================================== */
+input {
+    width: 100%;                           /* Ocupa todo el ancho de su celda */
+    padding: 12px 14px;                    /* Relleno interno para mayor comodidad al escribir */
+    border: 1px solid var(--border-color); /* Borde delgado gris claro */
+    border-radius: 8px;                    /* Esquinas sutilmente redondeadas */
+    font-size: 0.95rem;                    /* Tamaño de texto */
+    outline: none;                         /* Elimina el borde azul nativo por defecto al hacer clic */
+    transition: all 0.2s ease;             /* Transición suave para animar cambios de color o bordes */
+    background-color: #f1f5f9;             /* Fondo gris claro en estado normal */
+}
+
+input:focus {
+    border-color: var(--primary-color);            /* El borde cambia al color rosa principal al enfocar */
+    background-color: #fff;                        /* El fondo cambia a blanco puro */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); /* Añade un halo/anillo suave de enfoque alrededor del input */
+}
+
+/* ==========================================================================
+   8. BOTONES (button, [type="submit"], #btnConsultar)
+   Estilos generales, variaciones de botones primarios y secundarios.
+   ========================================================================== */
+button {
+    border: none;              /* Elimina el borde por defecto */
+    border-radius: 8px;        /* Esquinas redondeadas */
+    font-size: 0.95rem;        /* Tamaño del texto */
+    font-weight: 600;          /* Texto en semi-negrita */
+    padding: 12px 20px;        /* Espaciado interno superior/inferior y lateral */
+    cursor: pointer;           /* Cambia el cursor al icono de mano al pasar por encima */
+    transition: all 0.2s ease; /* Transición para efectos de hover */
+}
+
+/* Botón Primario de envío */
+button[type="submit"] {
+    grid-column: span 2;                  /* Ocupa el ancho completo de las 2 columnas del grid */
+    background-color: var(--primary-color);/* Fondo rosa principal */
+    color: white;                         /* Texto blanco */
+    margin-top: 8px;                      /* Pequeña separación superior */
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);/* Se oscurece ligeramente el rosa al pasar el cursor */
+    transform: translateY(-1px);          /* Eleva el botón 1px hacia arriba creando efecto de pulsación */
+}
+
+/* Botón Secundario consulta */
+#btnConsultar {
+    width: 100%;                       /* Ocupa el 100% del ancho disponible */
+    background-color: #e2e8f0;         /* Fondo gris claro neutro */
+    color: var(--text-main);           /* Texto en gris oscuro */
+}
+
+#btnConsultar:hover {
+    background-color: #cbd5e1;         /* El fondo se vuelve un poco más oscuro al pasar el cursor */
+}
+
+/* ==========================================================================
+   9. LÍNEA SEPARADORA (hr)
+   Divisor horizontal limpio entre secciones.
+   ========================================================================== */
+hr {
+    border: none;                          /* Quita el estilo 3D con relieve por defecto */
+    border-top: 1px solid var(--border-color);/* Crea una línea superior plana de 1px */
+    margin: 24px 0;                        /* Espaciado de 24px arriba y abajo */
+}
+
+/* ==========================================================================
+   10. LISTA Y ELEMENTOS (ul, li)
+   Estructura Grid para desplegar la lista de películas en 3 COLUMNAS.
+   ========================================================================== */
+ul {
+    list-style: none;             /* Quita los viñetas o puntos predeterminados de la lista */
+    margin-top: 20px;             /* Margen superior de 16px */
+    display: grid;                /* Cambiamos 'flex' por 'grid' para manejar columnas */
+    grid-template-columns: repeat(3, 0.5fr); /* (Crea 3 columnas iguales) */
+    gap: 8px;                    /* Espacio de 12px entre cada tarjeta de película */
+}
+
+li {
+    background-color: #f8fafc;            /* Fondo gris claro */
+    padding: 14px 16px;                   /* Relleno interno */
+    border-radius: 8px;                   /* Esquinas redondeadas */
+    border: 1px solid var(--border-color);/* Borde sutil gris */
+    font-size: 0.95rem;                   /* Tamaño del texto */
+    display: flex;                        /* Mantiene la organización dentro de cada tarjeta */
+    flex-direction: column;               /* Alinea el contenido interno (título, botón) hacia abajo */
+    justify-content: space-between;       /* Distribuye el espacio entre el título y el botón de borrado */
+    align-items: center;                  /* Centra el texto horizontalmente */
+    text-align: center;                   /* Para que los nombres de las películas se vean bien centrados */
+}

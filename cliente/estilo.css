@@ -1,0 +1,142 @@
+:root {
+    --primary-color: #e546ab;
+    --primary-hover: #ca38a3;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --radius: 12px;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* Formulario con grid responsivo */
+#formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+#formulario input[id="titulo"] {
+    grid-column: span 2;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: #f1f5f9;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Botones */
+button {
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button[type="submit"] {
+    grid-column: span 2;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 8px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+#btnConsultar {
+    width: 100%;
+    background-color: #e2e8f0;
+    color: var(--text-main);
+}
+
+#btnConsultar:hover {
+    background-color: #cbd5e1;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 24px 0;
+}
+
+/* Lista de películas */
+ul {
+    list-style: none;             /* Quita los viñetas o puntos predeterminados de la lista */
+    margin-top: 16px;             /* Margen superior de 16px */
+    display: grid;                /* Cambiamos 'flex' por 'grid' para manejar columnas */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 5px;                    /* Espacio de 12px entre cada tarjeta de película */
+}
+
+li {
+    background-color: #f8fafc;            /* Fondo gris claro */
+    padding: 14px 16px;                   /* Relleno interno */
+    border-radius: 8px;                   /* Esquinas redondeadas */
+    border: 1px solid var(--border-color);/* Borde sutil gris */
+    font-size: 0.95rem;                   /* Tamaño del texto */
+    display: flex;                        /* Mantiene la organización dentro de cada tarjeta */
+    flex-direction: column;               /* Alinea el contenido interno (título, botón) hacia abajo */
+    justify-content: space-between;       /* Distribuye el espacio entre el título y el botón de borrado */
+    align-items: center;                  /* Centra el texto horizontalmente */
+    text-align: center;                   /* Para que los nombres de las películas se vean bien centrados */
+}

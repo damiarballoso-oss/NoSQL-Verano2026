@@ -1,8 +1,12 @@
-
+// ==========================================================
+// api.js
+// Este archivo se encarga únicamente de la comunicación con
+// el backend (API REST). No maneja el DOM ni la interfaz.
+// ==========================================================
 
 const API_URL = "https://appi-netflix-5.vercel.app";
 
-// Obtener películas
+// Obtener todas las películas guardadas en la base de datos
 async function obtenerPeliculas() {
 
     const respuesta = await fetch(`${API_URL}/peliculas`);
@@ -15,7 +19,7 @@ async function obtenerPeliculas() {
 
 }
 
-// Agregar película
+// Agregar (guardar) una nueva película en la base de datos
 async function agregarPelicula(pelicula) {
 
     const respuesta = await fetch(`${API_URL}/peliculas`, {
